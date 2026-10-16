@@ -1,4 +1,4 @@
-constexpr uint8_t NUM_CH = 6;
+#include "config.h"
 
 const uint8_t CH_PIN[NUM_CH] = { A0, A1, A2, A3, A4, A5 };
 
