@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "bms-adc-6ch",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-stm32-bluepill", "id": "stm32", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "cell1", "top": -120, "left": 200, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "cell2", "top": -20, "left": 200, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "cell3", "top": 80, "left": 200, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "cell4", "top": 180, "left": 200, "attrs": {} },
+    { "type": "wokwi-ntc-temperature-sensor", "id": "ntc1", "top": 280, "left": 200, "attrs": { "temperature": "25" } },
+    { "type": "wokwi-potentiometer", "id": "curr", "top": 380, "left": 200, "attrs": {} }
+  ],
+  "connections": [
+    [ "stm32:A10", "$serialMonitor:TX", "green", [] ],
+    [ "stm32:A9", "$serialMonitor:RX", "green", [] ],
+
+    [ "cell1:SIG", "stm32:A0", "green", [] ],
+    [ "cell2:SIG", "stm32:A1", "green", [] ],
+    [ "cell3:SIG", "stm32:A2", "green", [] ],
+    [ "cell4:SIG", "stm32:A3", "green", [] ],
+    [ "ntc1:OUT",  "stm32:A4", "green", [] ],
+    [ "curr:SIG",  "stm32:A5", "green", [] ],
+
+    [ "cell1:VCC", "stm32:3V3.2", "red", [] ],
+    [ "cell2:VCC", "stm32:3V3.2", "red", [] ],
+    [ "cell3:VCC", "stm32:3V3.2", "red", [] ],
+    [ "cell4:VCC", "stm32:3V3.2", "red", [] ],
+    [ "ntc1:VCC",  "stm32:3V3.2", "red", [] ],
+    [ "curr:VCC",  "stm32:3V3.2", "red", [] ],
+
+    [ "cell1:GND", "stm32:GND.2", "black", [] ],
+    [ "cell2:GND", "stm32:GND.2", "black", [] ],
+    [ "cell3:GND", "stm32:GND.2", "black", [] ],
+    [ "cell4:GND", "stm32:GND.2", "black", [] ],
+    [ "ntc1:GND",  "stm32:GND.2", "black", [] ],
+    [ "curr:GND",  "stm32:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
